@@ -354,7 +354,7 @@ void MSG_WriteString (sizebuf_t *sb, char *s)
 
 void MSG_WriteCoord (sizebuf_t *sb, float f)
 {
-	MSG_WriteShort (sb, (int)(f*8));
+	MSG_WriteLong (sb, (int)(f*8));
 }
 
 void MSG_WritePos (sizebuf_t *sb, vec3_t pos)
@@ -803,7 +803,7 @@ char *MSG_ReadStringLine (sizebuf_t *msg_read)
 
 float MSG_ReadCoord (sizebuf_t *msg_read)
 {
-	return MSG_ReadShort(msg_read) * (1.0/8);
+	return MSG_ReadLong(msg_read) * (1.0/8);
 }
 
 void MSG_ReadPos (sizebuf_t *msg_read, vec3_t pos)
