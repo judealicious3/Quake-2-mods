@@ -535,12 +535,13 @@ void CL_ParsePlayerstate (frame_t *oldframe, frame_t *newframe)
 	if (flags & PS_M_TYPE)
 		state->pmove.pm_type = MSG_ReadByte (&net_message);
 
-	if (flags & PS_M_ORIGIN)
+		if (flags & PS_M_ORIGIN)
 	{
-		state->pmove.origin[0] = MSG_ReadShort (&net_message);
-		state->pmove.origin[1] = MSG_ReadShort (&net_message);
-		state->pmove.origin[2] = MSG_ReadShort (&net_message);
+		state->pmove.origin[0] = MSG_ReadLong (&net_message);
+		state->pmove.origin[1] = MSG_ReadLong (&net_message);
+		state->pmove.origin[2] = MSG_ReadLong (&net_message);
 	}
+
 
 	if (flags & PS_M_VELOCITY)
 	{
